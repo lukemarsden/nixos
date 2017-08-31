@@ -21,7 +21,9 @@
   networking.hostId = "cafecafe";
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  networking.networkmanager.enable = true;
 
   # Select internationalisation properties.
   # i18n = {
@@ -33,11 +35,17 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  # environment.systemPackages = with pkgs; [
-  #   wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    wget
+    chromium
+    vim
+    docker
+    slack
+  ];
 
   # List services that you want to enable:
 
@@ -54,13 +62,25 @@
   # services.printing.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "gb";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services.xserver = {
+    enable = true;
+    layout = "gb";
+    libinput.enable = true;
+    synaptics.enable = false;
+    # services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+    config = ''
+      Section "InputClass"
+        Identifier     "Enable libinput for TrackPoint"
+        MatchIsPointer "on"
+        Driver         "libinput"
+      EndSection
+    '';
+
+    # Enable the KDE Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # users.extraUsers.guest = {
