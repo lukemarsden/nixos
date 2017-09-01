@@ -54,6 +54,7 @@
     jq
     tmux
     tmate
+    gnumake
   ];
 
   # List services that you want to enable:
