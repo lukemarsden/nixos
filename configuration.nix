@@ -45,6 +45,8 @@
     vim
     docker
     slack
+    universal-ctags
+    mtr
   ];
 
   # List services that you want to enable:
