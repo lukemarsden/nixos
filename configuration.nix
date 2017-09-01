@@ -96,6 +96,8 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  boot.kernel.sysctl."vm.max_map_count" = 262144;
+
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";
 
