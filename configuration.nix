@@ -49,6 +49,8 @@
     mtr
     go
     jq
+    tmux
+    tmate
   ];
 
   # List services that you want to enable:
@@ -98,6 +100,12 @@
   security.sudo.wheelNeedsPassword = false;
 
   boot.kernel.sysctl."vm.max_map_count" = 262144;
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "overlay2";
+    extraOptions = "--insecure-registry ${config.networking.hostName}.local:80";
+  };
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";
