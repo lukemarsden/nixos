@@ -48,6 +48,7 @@
     universal-ctags
     mtr
     go
+    jq
   ];
 
   # List services that you want to enable:
