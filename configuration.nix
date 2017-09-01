@@ -47,6 +47,7 @@
     slack
     universal-ctags
     mtr
+    go
   ];
 
   # List services that you want to enable:
