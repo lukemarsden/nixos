@@ -25,6 +25,8 @@
 
   networking.networkmanager.enable = true;
 
+  networking.extraHosts = "127.0.0.1 ${config.networking.hostName}.local";
+
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
@@ -44,7 +46,7 @@
     chromium
     vim
     docker
-    docker-compose
+    docker_compose
     slack
     universal-ctags
     mtr
