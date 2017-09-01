@@ -44,6 +44,7 @@
     chromium
     vim
     docker
+    docker-compose
     slack
     universal-ctags
     mtr
