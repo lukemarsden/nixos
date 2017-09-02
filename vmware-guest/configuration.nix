@@ -28,6 +28,8 @@
 
   networking.extraHosts = "127.0.0.1 ${config.networking.hostName}.local";
 
+  services.vmwareGuest.enable = true;
+
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
