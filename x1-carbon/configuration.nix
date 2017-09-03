@@ -56,6 +56,7 @@
     tmux
     tmate
     gnumake
+    git
   ];
 
   # List services that you want to enable:
