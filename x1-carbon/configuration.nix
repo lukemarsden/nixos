@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.grub.device = "/dev/nvme0n1";
-  fileSystems."/".options = "relatime,data=journal";
+  fileSystems."/".options = [ "data=journal" ];
 
   boot.supportedFilesystems = [ "zfs" ];
 

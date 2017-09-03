@@ -16,7 +16,7 @@
 
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-  fileSystems."/".options = "relatime,data=journal";
+  fileSystems."/".options = [ "data=journal" ];
 
   boot.supportedFilesystems = [ "zfs" ];
 
