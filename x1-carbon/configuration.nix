@@ -87,7 +87,11 @@
       EndSection
     '';
 
-    displayManager.gdm.enable = true;
+    # Enable the KDE Desktop Environment.
+    #displayManager.sddm.enable = true;
+    #desktopManager.plasma5.enable = true;
+
+    #displayManager.gdm.enable = true;
 
     desktopManager = {
       gnome3.enable = true;
