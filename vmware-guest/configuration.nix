@@ -25,9 +25,12 @@
   networking.hostName = "zippy"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
 
   networking.extraHosts = "127.0.0.1 ${config.networking.hostName}.local";
+
+  networking.interfaces.enp2s1.ipAddress = "192.168.69.10";
+  networking.interfaces.enp2s1.prefixLength = 24;
 
   services.vmwareGuest.enable = true;
 
