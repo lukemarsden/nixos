@@ -32,6 +32,9 @@
   networking.interfaces.enp2s1.ipAddress = "192.168.69.10";
   networking.interfaces.enp2s1.prefixLength = 24;
 
+  networking.defaultGateway = { address = "192.168.69.2"; interface = "enp2s1"; };
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+
   services.vmwareGuest.enable = true;
 
   # Select internationalisation properties.
